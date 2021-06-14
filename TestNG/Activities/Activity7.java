@@ -1,0 +1,47 @@
+package AlchemyActivitiesTestng;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import org.testng.collections.Lists;
+
+@SuppressWarnings("unused")
+public class Activity7 {
+	WebDriver driver;
+    
+    @BeforeTest
+    public void beforeMethod() {
+        //Create a new instance of the Firefox driver
+        driver = new FirefoxDriver();
+            
+        //Open the browser
+        driver.get("https://alchemy.hguy.co/lms");
+    }
+    
+ 
+    
+    @Test
+    public void testcase2(){
+    	driver.findElement(By.linkText("All Courses")).click();
+    	
+	List <WebElement> fr= driver.findElements(By.xpath("//p[@class='entry-content']"));
+          System.out.println("No. of Courses: "+ fr.size());
+      
+    
+    }
+ 
+    
+    
+ 
+    @AfterTest
+    public void afterMethod() {
+        //Close the browser
+        driver.close();
+    }
+}
